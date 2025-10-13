@@ -1,0 +1,33 @@
+{
+  "name": "ivansostarko/otto-crypt-php",
+  "description": "OTTO Crypt: AES-256-GCM + HKDF-SIV style streaming AEAD with X25519 key agreement for Laravel.",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Ivan Doe"
+    }
+  ],
+  "require": {
+    "php": "^8.1",
+    "ext-openssl": "*",
+    "ext-sodium": "*",
+    "illuminate/support": "^10.0|^11.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "IvanSostarko\\OttoCrypt\\": "src/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "IvanSostarko\\OttoCrypt\\OttoCryptServiceProvider"
+      ]
+    }
+  },
+  "require-dev": {
+    "orchestra/testbench": "^8.0|^9.0",
+    "phpunit/phpunit": "^10.0"
+  }
+}
