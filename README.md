@@ -3,6 +3,7 @@
 
 OTTO Crypt is a Laravel‑ready crypto package that provides **end‑to‑end encryption (E2EE)** and **chunked streaming AEAD** for large files (video/audio), while remaining simple to use in apps and Artisan CLI.
 
+
 > ⚠️ **Security notice**: OTTO Crypt uses trusted primitives (**AES‑256‑GCM, Argon2id, HKDF, X25519**), but its composition ("**OTTO‑256‑GCM‑HKDF‑SIV**") is **custom**. Treat it as experimental until it undergoes an **independent cryptographic review**.
 
 ---
@@ -55,7 +56,7 @@ composer require ivansostarko/otto-crypt-php
 php artisan vendor:publish --provider="IvanSostarko\OttoCrypt\OttoCryptServiceProvider"
 ```
 
-Requirements: PHP **8.1+**, `ext-openssl`, `ext-sodium`, Laravel **10/11**.
+Requirements: PHP **8.2+**, `ext-openssl`, `ext-sodium`, Laravel **12**.
 
 ---
 
@@ -65,22 +66,22 @@ Requirements: PHP **8.1+**, `ext-openssl`, `ext-sodium`, Laravel **10/11**.
 
 **Encrypt with a password (Argon2id):**
 ```bash
-php artisan otto:encrypt storage/app/in.mp4 --out=storage/app/in.mp4.otto --password="strong-pass"
+php artisan otto:encrypt storage/app/private/otto-demo/test.exe --out=storage/app/private/otto-demo/test.exe.otto --password="strong-pass"
 ```
 
 **Decrypt with a password:**
 ```bash
-php artisan otto:decrypt storage/app/in.mp4.otto --out=storage/app/in.dec.mp4 --password="strong-pass"
+php artisan otto:decrypt storage/app/private/otto-demo/test.exe --out=storage/app/private/otto-demo/test.exe.otto --password="strong-pass"
 ```
 
 **End‑to‑end: encrypt to a recipient’s X25519 public key (base64/hex/raw):**
 ```bash
-php artisan otto:encrypt storage/app/big.mov --out=storage/app/big.mov.otto --recipient="BASE64_OR_HEX_PUBLIC"
+php artisan otto:encrypt storage/app/private/otto-demo/big.mov --out=storage/app/big.mov.otto --recipient="BASE64_OR_HEX_PUBLIC"
 ```
 
 **End‑to‑end: decrypt with your X25519 secret key:**
 ```bash
-php artisan otto:decrypt storage/app/big.mov.otto --out=storage/app/big.mov --sender-secret="BASE64_OR_HEX_SECRET"
+php artisan otto:decrypt storage/app/private/otto-demo/big.mov.otto --out=storage/app/big.mov --sender-secret="BASE64_OR_HEX_SECRET"
 ```
 
 ### Laravel API (Facade)
@@ -249,24 +250,6 @@ If you do **not** need AES or Laravel integration, consider **libsodium’s `cry
 
 
 
-## Examples
-
-**Encrypt a photo to a recipient’s public key**:
-```bash
-php artisan otto:encrypt storage/app/photo.jpg --out=storage/app/photo.jpg.otto --recipient="BASE64_PUBLIC"
-```
-
-**Decrypt a large video**:
-```bash
-php artisan otto:decrypt storage/app/vid.mp4.otto --out=storage/app/vid.mp4 --sender-secret="BASE64_SECRET"
-```
-
-**Use a raw 32‑byte key (hex)**:
-```bash
-php artisan otto:encrypt storage/app/doc.pdf --out=storage/app/doc.pdf.otto --raw-key="f3ab...32byteshex..."
-```
-
----
 
 ## Roadmap
 
