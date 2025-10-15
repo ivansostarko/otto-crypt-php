@@ -1,11 +1,11 @@
 {
   "name": "ivansostarko/otto-crypt-php",
-  "description": "OTTO Crypt: AES-256-GCM + HKDF-SIV style streaming AEAD with X25519 key agreement for Laravel.",
+  "description": "OTTO Crypt Laravel Package.",
   "type": "library",
   "license": "MIT",
   "authors": [
     {
-      "name": "Ivan Doe"
+      "name": "Ivan Sostarko"
     }
   ],
   "require": {

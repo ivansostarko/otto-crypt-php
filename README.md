@@ -1,4 +1,4 @@
-# OTTO Crypt — Laravel E2E + Streaming Encryption (AES‑256‑GCM, HKDF‑SIV, X25519)
+# OTTO Crypt — Laravel Package
 
 
 OTTO Crypt is a Laravel‑ready crypto package that provides **end‑to‑end encryption (E2EE)** and **chunked streaming AEAD** for large files (video/audio), while remaining simple to use in apps and Artisan CLI.
@@ -247,11 +247,7 @@ If you do **not** need AES or Laravel integration, consider **libsodium’s `cry
 
 ---
 
-## Docker
 
-This repo includes **Dockerfile** and **docker-compose.yml** that set up PHP 8.3 + Composer + required extensions. See `ops-DOCKER-README.md` for step‑by‑step usage.
-
----
 
 ## Examples
 
