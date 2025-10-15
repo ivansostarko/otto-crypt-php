@@ -1,11 +1,12 @@
 {
   "name": "ivansostarko/otto-crypt-php",
-  "description": "OTTO Crypt Laravel Package.",
+  "description": "A PHP package for Otto Crypt encryption",
   "type": "library",
   "license": "MIT",
   "authors": [
     {
-      "name": "Ivan Sostarko"
+      "name": "Ivan Sostarko",
+      "email": "ivan.sostarko@hotmail.com"
     }
   ],
   "require": {
